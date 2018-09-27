@@ -1,11 +1,18 @@
 page-home {
 
-ion-card{
-position:relative;
-top: 25%;
+div{
+    color: #1D3557;
+    position: relative;
+    top: 20%;
 }
 
-ion-content{
+h3{
+    position: relative;
+    top: -50px;
+}
+
+ion-item{
+    margin: 20px 0px 20px 0px;
 }
 
 }
