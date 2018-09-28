@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SetPage } from '../set/set';
 import { Title } from '@angular/platform-browser';
+import { AddSetPage } from '../add-set/add-set'
 
 @Component({
   selector: 'page-list',
@@ -42,6 +43,8 @@ export class ListPage {
   itemTapped(item) {
     if(this.items[0] === item){
     this.navCtrl.push(SetPage);
+    }else if(this.items[10] === item){
+      this.navCtrl.push(AddSetPage);
     }
   }
 
