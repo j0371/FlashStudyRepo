@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { SetPage } from '../set/set';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage {
-  selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  items: Array<{title: string, icon: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
 
     // Let's populate this page with some filler content for funzies
 
@@ -21,24 +21,28 @@ export class ListPage {
 
       if(i === 1){
         this.items.push({
-          title: 'Default Set',
-          note: 'This is item #' + i,
+          title: 'Example Set',
           icon: 'flask'
         });
       }else{
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: 'flask'
-      });
-    }
+        this.items.push({
+          title: 'Set ' + i,
+          icon: 'flask'
+        });
+
+        if(i === 10){
+          this.items.push({
+            title: 'Add Set ',
+            icon: 'add'
+          });
+        }
+      } 
     }
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
-      item: item
-    });
+  itemTapped(item) {
+    if(this.items[0] === item){
+    this.navCtrl.push(SetPage);
+    }
   }
 }
