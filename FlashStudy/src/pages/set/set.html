@@ -15,4 +15,17 @@
 
 <ion-content padding>
 
+    <ion-card *ngFor="let card of cards" (click)="showAlert()">
+        <ion-card-content>
+
+          <div>
+          <ion-list>
+            <ion-item text-center>{{ card.front }}</ion-item>
+            <ion-item text-center>{{ card.back }}</ion-item>
+          </ion-list>
+        </div>
+
+        </ion-card-content>
+      </ion-card>
+
 </ion-content>

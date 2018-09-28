@@ -8,7 +8,6 @@ import { Title } from '@angular/platform-browser';
   templateUrl: 'list.html'
 })
 export class ListPage {
-  icons: string[];
   items: Array<{title: string, icon: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
@@ -45,4 +44,9 @@ export class ListPage {
     this.navCtrl.push(SetPage);
     }
   }
+
+  goBack(){
+    this.navCtrl.pop();
+  }
+
 }
