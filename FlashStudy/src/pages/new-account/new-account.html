@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar hideBackButton>
+      <ion-title class="notHome">CREATE ACCOUNT</ion-title>
+      <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-list>
+
+        <ion-item>
+          <ion-input type="text" placeholder="Username" margin-top margin-bottom></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-input type="password" placeholder="Password" margin-top margin-bottom></ion-input>
+        </ion-item>
+
+                <ion-item>
+          <ion-input type="password" placeholder="Confirm Password" margin-top margin-bottom></ion-input>
+        </ion-item>
+      
+      </ion-list>
+
+      <div text-center>
+        <button ion-button margin (click)="clickCreate()">Create Account</button>
+      </div>
+
+</ion-content>

@@ -29,6 +29,15 @@ export class SetPopOverPage {
     this.viewCtrl.dismiss();
   }
 
+  clickResetCards(){
+    const alert = this.alertCtrl.create({
+      title: 'Incomplete',
+      subTitle: 'This will make all of the backs of the cards invisible again',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
   clickDeleteCards(){
     const alert = this.alertCtrl.create({
       title: 'Incomplete',
