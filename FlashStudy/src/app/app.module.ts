@@ -10,6 +10,7 @@ import { AddSetPage } from '../pages/add-set/add-set'
 import { SetPopOverPage } from '../pages/set-pop-over/set-pop-over'
 import { AddCardPage } from '../pages/add-card/add-card'
 import { NewAccountPage } from '../pages/new-account/new-account'
+import { AboutPage } from '../pages/about/about'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,7 +24,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AddSetPage,
     SetPopOverPage,
     AddCardPage,
-    NewAccountPage
+    NewAccountPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AddSetPage,
     SetPopOverPage,
     AddCardPage,
-    NewAccountPage
+    NewAccountPage,
+    AboutPage
   ],
   providers: [
     StatusBar,

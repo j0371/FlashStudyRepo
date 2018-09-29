@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { ListPage } from '../list/list';
 import { MenuController } from 'ionic-angular'
 import { NewAccountPage } from '../new-account/new-account'
+import { AboutPage } from '../about/about'
 
 @Component({
   selector: 'page-home',
@@ -14,12 +15,16 @@ export class HomePage {
     this.menu.swipeEnable(false);
   }
 
-  goToCards(){
+  goToSets(){
     this.navCtrl.push(ListPage);
   }
 
   clickAccount(){
     this.navCtrl.push(NewAccountPage);
+  }
+
+  clickAbout(){
+    this.navCtrl.push(AboutPage);
   }
 
 }
