@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { AddCardPage } from '../add-card/add-card'
+import { ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -10,7 +12,7 @@ import { AlertController } from 'ionic-angular';
 export class SetPopOverPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController, public viewCtrl: ViewController) {
   }
 
   clickRename(){
@@ -23,7 +25,8 @@ export class SetPopOverPage {
   }
 
   clickAddCards(){
-
+    this.navCtrl.push(AddCardPage);
+    this.viewCtrl.dismiss();
   }
 
   clickDeleteCards(){

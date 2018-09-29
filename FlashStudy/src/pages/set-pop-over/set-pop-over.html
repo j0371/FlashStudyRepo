@@ -31,19 +31,19 @@
             </ion-select>
           </ion-item>
 
-    <ion-item>
+    <ion-item (click)="clickAddCards()">
       <ion-icon name="add" item-start></ion-icon>
       <div ion-text color="dark">Add Cards</div>
     </ion-item>
 
     <ion-item (click)="clickDeleteCards()">
-      <ion-icon name="trash" item-start></ion-icon>
-      <div ion-text color="dark">Delete Cards</div>
+      <ion-icon ion-text color="danger" name="trash"  item-start></ion-icon>
+      <div ion-text color="danger">Delete Cards</div>
     </ion-item>
 
     <ion-item (click)="clickDeleteSet()">
-        <ion-icon name="alert" item-start></ion-icon>
-        <div ion-text color="dark">Delete Set</div>
+        <ion-icon ion-text color="danger" name="alert" item-start></ion-icon>
+        <div ion-text color="danger">Delete Set</div>
       </ion-item>
 
   </ion-list>

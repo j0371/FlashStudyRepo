@@ -12,7 +12,11 @@
 
 <ion-content padding>
 
-    <ion-card (click)="showAlert()">
+    <div text-center margin>
+        <button ion-button (click)="clickReset()">Reset Cards</button>
+        </div>
+
+    <ion-card (click)="clickCard()">
       <ion-card-content>
 
         <div >
@@ -25,7 +29,7 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card *ngFor="let card of cards" (click)="showAlert()">
+    <ion-card *ngFor="let card of cards" (click)="clickCard()">
         <ion-card-content>
 
           <div>
@@ -37,5 +41,9 @@
 
         </ion-card-content>
       </ion-card>
+
+      <div text-center margin>
+    <button ion-button (click)="clickReset()">Reset Cards</button>
+    </div>
 
 </ion-content>

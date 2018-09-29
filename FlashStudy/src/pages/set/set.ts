@@ -27,10 +27,19 @@ cards: Array<{front: string, back: string}>
 
   }
 
-  showAlert() {
+  clickCard() {
     const alert = this.alertCtrl.create({
       title: 'Incomplete',
       subTitle: 'The back part of the card will be hidden until you tap it',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
+  clickReset(){
+    const alert = this.alertCtrl.create({
+      title: 'Incomplete',
+      subTitle: 'This will make all of the backs of the cards invisible again',
       buttons: ['OK']
     });
     alert.present();
