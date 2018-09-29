@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { SetPage } from '../set/set';
 import { Title } from '@angular/platform-browser';
 import { AddSetPage } from '../add-set/add-set'
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-list',
@@ -11,7 +12,8 @@ import { AddSetPage } from '../add-set/add-set'
 export class ListPage {
   items: Array<{title: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public alertCtrl: AlertController) {
     // If we navigated to this page, we will have an item available as a nav param
 
     // Let's populate this page with some filler content for funzies
@@ -40,11 +42,22 @@ export class ListPage {
     }
   }
 
+  showAlert() {
+    const alert = this.alertCtrl.create({
+      title: 'Incomplete',
+      subTitle: 'Click the example set or add set',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
   itemTapped(item) {
     if(this.items[0] === item){
     this.navCtrl.push(SetPage);
     }else if(this.items[10] === item){
       this.navCtrl.push(AddSetPage);
+    }else{
+      this.showAlert();
     }
   }
 

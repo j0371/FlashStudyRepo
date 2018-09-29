@@ -17,7 +17,7 @@ export class AddSetPage {
   showAlert() {
     const alert = this.alertCtrl.create({
       title: 'Incomplete',
-      subTitle: 'This button will add the set to your',
+      subTitle: 'This button will add the set to your collection',
       buttons: ['OK']
     });
     alert.present();

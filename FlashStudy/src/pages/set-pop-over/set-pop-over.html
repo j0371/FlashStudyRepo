@@ -9,6 +9,43 @@
 
 <ion-content padding>
 
-  
+
+
+  <ion-list>
+
+      <ion-item (click)="clickRename()">
+          <ion-icon name="code-working" item-start></ion-icon>
+            <div ion-text color="dark">Rename Set</div>
+        </ion-item>
+        
+        <ion-item>
+            <ion-icon name="eye" item-start></ion-icon>
+            <ion-label ion-text color="dark">Icon</ion-label>
+            <ion-select [(ngModel)]="icon">
+              <ion-option value="flask">Flask</ion-option>
+              <ion-option value="calculator">Calculator</ion-option>
+              <ion-option value="musical-notes">Musical Note</ion-option>
+              <ion-option value="alert">Alert</ion-option>
+              <ion-option value="attach">Paper Clip</ion-option>
+              <ion-option value="build">Wrench</ion-option>
+            </ion-select>
+          </ion-item>
+
+    <ion-item>
+      <ion-icon name="add" item-start></ion-icon>
+      <div ion-text color="dark">Add Cards</div>
+    </ion-item>
+
+    <ion-item (click)="clickDeleteCards()">
+      <ion-icon name="trash" item-start></ion-icon>
+      <div ion-text color="dark">Delete Cards</div>
+    </ion-item>
+
+    <ion-item (click)="clickDeleteSet()">
+        <ion-icon name="alert" item-start></ion-icon>
+        <div ion-text color="dark">Delete Set</div>
+      </ion-item>
+
+  </ion-list>
 
 </ion-content>

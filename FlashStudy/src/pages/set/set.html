@@ -2,6 +2,7 @@
 
   <ion-navbar hideBackButton>
     <ion-title class="notHome">EXAMPLE SET</ion-title>
+
     <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
     <ion-icon name="more" class="settings" (click)="goToPopOver()"></ion-icon>
   </ion-navbar>
@@ -14,10 +15,10 @@
     <ion-card (click)="showAlert()">
       <ion-card-content>
 
-        <div>
-          <ion-list inset>
-            <ion-item text-center>Image card Example</ion-item>
-            <ion-item text-center><img src="../assets/imgs/ball.jpg" /></ion-item>
+        <div >
+          <ion-list>
+            <ion-item text-center><div ion-text color="dark">Image card Example</div></ion-item>
+            <ion-item text-center><div ion-text color="dark"><img src="../assets/imgs/ball.jpg" /></div></ion-item>
           </ion-list>
         </div>
 
@@ -29,8 +30,8 @@
 
           <div>
             <ion-list inset>
-              <ion-item text-center>{{ card.front }}</ion-item>
-              <ion-item text-center>{{ card.back }}</ion-item>
+              <ion-item text-center><div ion-text color="dark">{{ card.front }}</div></ion-item>
+              <ion-item text-center><div ion-text color="dark">{{ card.back }}</div></ion-item>
             </ion-list>
           </div>
 
