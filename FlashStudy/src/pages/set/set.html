@@ -3,18 +3,7 @@
   <ion-navbar hideBackButton>
     <ion-title class="notHome">EXAMPLE SET</ion-title>
     <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
-
-    <ion-icon name="more" class="settings" (click)="goBack()">
-        <ion-select [(ngModel)]="setSettings">
-          <ion-option value="nes">NES</ion-option>
-          <ion-option value="n64">Nintendo64</ion-option>
-          <ion-option value="ps">PlayStation</ion-option>
-          <ion-option value="genesis">Sega Genesis</ion-option>
-          <ion-option value="saturn">Sega Saturn</ion-option>
-          <ion-option value="snes">SNES</ion-option>
-        </ion-select>
-    </ion-icon>
-
+    <ion-icon name="more" class="settings" (click)="goToPopOver()"></ion-icon>
   </ion-navbar>
 
 </ion-header>
@@ -23,27 +12,27 @@
 <ion-content padding>
 
     <ion-card (click)="showAlert()">
-        <ion-card-content>
+      <ion-card-content>
 
-          <div>
+        <div>
           <ion-list inset>
             <ion-item text-center>Image card Example</ion-item>
             <ion-item text-center><img src="../assets/imgs/ball.jpg" /></ion-item>
           </ion-list>
         </div>
 
-        </ion-card-content>
-      </ion-card>
+      </ion-card-content>
+    </ion-card>
 
     <ion-card *ngFor="let card of cards" (click)="showAlert()">
         <ion-card-content>
 
           <div>
-          <ion-list inset>
-            <ion-item text-center>{{ card.front }}</ion-item>
-            <ion-item text-center>{{ card.back }}</ion-item>
-          </ion-list>
-        </div>
+            <ion-list inset>
+              <ion-item text-center>{{ card.front }}</ion-item>
+              <ion-item text-center>{{ card.back }}</ion-item>
+            </ion-list>
+          </div>
 
         </ion-card-content>
       </ion-card>

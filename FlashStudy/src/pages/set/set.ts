@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { PopoverController } from 'ionic-angular';
+import { SetPopOverPage } from '../set-pop-over/set-pop-over';
 
 @IonicPage()
 @Component({
@@ -11,7 +13,7 @@ export class SetPage {
 cards: Array<{front: string, back: string}>
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public alertCtrl: AlertController) {
+    public alertCtrl: AlertController,public popoverCtrl: PopoverController) {
 
    this.cards = [];
 
@@ -38,4 +40,8 @@ cards: Array<{front: string, back: string}>
     this.navCtrl.pop();
   }
 
+  goToPopOver(){
+    const popover = this.popoverCtrl.create(SetPopOverPage);
+    popover.present();
+  }
 }
