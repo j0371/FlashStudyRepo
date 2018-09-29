@@ -22,4 +22,9 @@ export class AddSetPage {
     });
     alert.present();
   }
+
+  goBack(){
+    this.navCtrl.pop();
+  }
+  
 }

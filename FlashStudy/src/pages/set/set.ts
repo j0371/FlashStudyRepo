@@ -34,4 +34,8 @@ cards: Array<{front: string, back: string}>
     alert.present();
   }
 
+  goBack(){
+    this.navCtrl.pop();
+  }
+
 }

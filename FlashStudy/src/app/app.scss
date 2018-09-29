@@ -20,6 +20,8 @@
     text-align: center;
 }
 
+
+
 .toolbar-background{
     background-color: #FAFBFC;
 }
@@ -28,5 +30,26 @@ ion-icon{
     color: #1D3557
 }
 
-ion-header ion-icon.back-button-icon.icon {
+.notHome{
+    position: relative;
+    top: 37px;
+}
+
+.back{
+    font-size: 200%;
+    position: relative;
+    top: 12px;
+    left: 15px
+}
+
+.settings{
+    font-size: 200%;
+    position: relative;
+    float: right;
+    top: 9px;
+    left: 30px;
+}
+
+ion-navbar.toolbar {
+    max-height: 75px;
 }
