@@ -1,10 +1,21 @@
 <ion-header>
 
   <ion-navbar hideBackButton>
-    <ion-title class="notHome">EXAMPLE SET</ion-title>
 
-    <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
-    <ion-icon name="more" class="settings" (click)="goToPopOver()"></ion-icon>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-title class="notHome">EXAMPLE SET</ion-title>
+        </ion-col>
+        <ion-col>
+          <ion-icon name="more" class="settings" (click)="goToPopOver()"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
   </ion-navbar>
 
 </ion-header>
@@ -14,8 +25,9 @@
 
     <div text-center margin>
         <button ion-button (click)="clickReset()">Reset Cards</button>
-        </div>
+    </div>
 
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <ion-card (click)="clickCard()">
       <ion-card-content>
 

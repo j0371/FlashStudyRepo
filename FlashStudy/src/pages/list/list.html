@@ -1,11 +1,25 @@
 <ion-header>
   <ion-navbar hideBackButton>
-    <ion-title class="notHome">SETS</ion-title>
-    <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
+
+      <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
+            </ion-col>
+            <ion-col>
+              <ion-title class="notHome">SETS</ion-title>
+            </ion-col>
+            <ion-col> </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
   </ion-navbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
     <button ion-item *ngFor="let item of items" (click)="itemTapped(item)">
       <ion-icon [name]="item.icon" item-start></ion-icon>

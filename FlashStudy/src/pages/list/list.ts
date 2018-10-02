@@ -14,10 +14,10 @@ export class ListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public alertCtrl: AlertController) {
-    // If we navigated to this page, we will have an item available as a nav param
+                this.initializeItems();
+  }
 
-    // Let's populate this page with some filler content for funzies
-
+  initializeItems(){
     this.items = [];
     for (let i = 1; i < 11; i++) {
 
@@ -40,6 +40,17 @@ export class ListPage {
         }
       } 
     }
+  }
+
+  getItems(ev: any) {
+
+    const alert = this.alertCtrl.create({
+      title: 'Incomplete',
+      subTitle: 'This will filter the set names',
+      buttons: ['OK']
+    });
+    alert.present();
+
   }
 
   showAlert() {

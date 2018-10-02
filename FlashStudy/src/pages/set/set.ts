@@ -27,6 +27,15 @@ cards: Array<{front: string, back: string}>
 
   }
 
+  getItems(ev: any) {
+    const alert = this.alertCtrl.create({
+      title: 'Incomplete',
+      subTitle: 'This will filter the set names',
+      buttons: ['OK']
+    });
+    alert.present();
+  }
+
   clickCard() {
     const alert = this.alertCtrl.create({
       title: 'Incomplete',

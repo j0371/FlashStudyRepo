@@ -15,40 +15,34 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+
+$primary:    #457B9D;
+$secondary:  #A8DADC;
+$danger:     #E63946;
+$light:      #FAFBFC;
+$dark:       #1D3557;
+
 .toolbar-title{
-    color: #1D3557;
+    //color: #1D3557;
+    color: $dark;
     text-align: center;
 }
 
-
-
 .toolbar-background{
-    background-color: #FAFBFC;
+    background-color: $light;
 }
 
 ion-icon{
-    color: #1D3557
-}
-
-.notHome{
-    position: relative;
-    top: 17px;
-    left: 5px;
+    color: $dark;
 }
 
 .back{
     font-size: 200%;
-    position: relative;
-    top: -8px;
-    left: 15px
 }
 
 .settings{
     font-size: 200%;
-    position: relative;
     float: right;
-    top: -10px;
-    left: -15px;
 }
 
 ion-navbar.toolbar {

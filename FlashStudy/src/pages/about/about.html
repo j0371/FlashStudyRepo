@@ -1,8 +1,19 @@
 <ion-header>
 
     <ion-navbar hideBackButton>
-        <ion-title class="notHome">ABOUT</ion-title>
-        <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
+
+        <ion-grid>
+            <ion-row>
+              <ion-col>
+               <ion-icon name="arrow-back" class="back" (click)="goBack()" col-1></ion-icon> 
+              </ion-col>
+              <ion-col>
+                <ion-title class="notHome" col-11>ABOUT</ion-title>
+              </ion-col>
+              <ion-col> </ion-col>
+            </ion-row>
+          </ion-grid>
+
   </ion-navbar>
 
 </ion-header>
@@ -10,7 +21,7 @@
 
 <ion-content padding>
 
-  <H3 ion-text color="dark">Name: Marcus Higgins</H3>
+  <H3 ion-text color="dark">Author: Marcus Higgins</H3>
   <H3 ion-text color="dark">Course: CSCI 458</H3>
 
   <br>
