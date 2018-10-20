@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 
+import firebase from 'firebase';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -33,6 +35,16 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      firebase.initializeApp({
+        apiKey: "AIzaSyAO6fOWook8YgypSli0w9rvtlNz5PkLSKY",
+        authDomain: "flashstudyauth.firebaseapp.com",
+        databaseURL: "https://flashstudyauth.firebaseio.com",
+        projectId: "flashstudyauth",
+        storageBucket: "flashstudyauth.appspot.com",
+        messagingSenderId: "717565357056"
+    });
+
     });
   }
 
@@ -40,5 +52,9 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+
+  ngOnInit(){
+
   }
 }

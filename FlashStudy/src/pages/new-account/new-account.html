@@ -21,24 +21,24 @@
 
 <ion-content padding>
 
-    <ion-list>
+    <form (ngSubmit)="register()">
 
         <ion-item>
-          <ion-input type="text" placeholder="Username" margin-top margin-bottom></ion-input>
+          <ion-input type="email" placeholder="Email" [(ngModel)]="email" name="email" margin-top margin-bottom></ion-input>
         </ion-item>
       
         <ion-item>
-          <ion-input type="password" placeholder="Password" margin-top margin-bottom></ion-input>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="password" name="password" margin-top margin-bottom></ion-input>
         </ion-item>
 
                 <ion-item>
-          <ion-input type="password" placeholder="Confirm Password" margin-top margin-bottom></ion-input>
+          <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="cPassword" name="cPassword" margin-top margin-bottom></ion-input>
         </ion-item>
       
-      </ion-list>
+      </form>
 
       <div text-center>
-        <button ion-button margin (click)="clickCreate()">Create Account</button>
+        <button ion-button margin (click)="register()">Create Account</button>
       </div>
 
 </ion-content>

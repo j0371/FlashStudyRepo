@@ -10,6 +10,7 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'list.html'
 })
 export class ListPage {
+  
   items: Array<{title: string, icon: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
