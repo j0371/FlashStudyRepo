@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { SetPopOverPage } from '../set-pop-over/set-pop-over';
+import { AuthenticationProvider } from '../../providers/authentication/authentication'
 
 @IonicPage()
 @Component({
@@ -13,7 +14,10 @@ export class SetPage {
 cards: Array<{front: string, back: string}>
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public alertCtrl: AlertController,public popoverCtrl: PopoverController) {
+              public alertCtrl: AlertController,public popoverCtrl: PopoverController,
+              private auth: AuthenticationProvider) {
+
+   console.log(auth.getUser().email);
 
    this.cards = [];
 

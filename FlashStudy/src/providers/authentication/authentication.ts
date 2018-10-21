@@ -8,6 +8,9 @@ export class AuthenticationProvider {
 
   constructor(public http: HttpClient) {
     console.log('Hello AuthenticationProvider Provider');
+
+    firebase.auth.Auth.Persistence.LOCAL;
+
   }
 
     register(email, password): Promise<any> {
@@ -26,8 +29,21 @@ export class AuthenticationProvider {
       return firebase.auth().signOut();
   }
 
+  
   getUser() {
     return firebase.auth().currentUser;
   }
+  
+
+  /*
+  getUser() {
+    firebase.auth().onAuthStateChanged(function(user) {
+
+      return user;
+
+    });
+  }
+  */
+
 
 }
