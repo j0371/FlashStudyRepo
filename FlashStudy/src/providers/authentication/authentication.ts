@@ -33,17 +33,5 @@ export class AuthenticationProvider {
   getUser() {
     return firebase.auth().currentUser;
   }
-  
-
-  /*
-  getUser() {
-    firebase.auth().onAuthStateChanged(function(user) {
-
-      return user;
-
-    });
-  }
-  */
-
 
 }

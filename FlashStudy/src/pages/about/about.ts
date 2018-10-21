@@ -11,9 +11,6 @@ export class AboutPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private auth: AuthenticationProvider) {
-
-                console.log(auth.getUser().email);
-
   }
 
   goBack(){

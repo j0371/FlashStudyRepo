@@ -19,9 +19,6 @@ export class HomePage {
   constructor(public navCtrl: NavController,private menu: MenuController,
     private auth: AuthenticationProvider, public alertCtrl: AlertController) {
     this.menu.swipeEnable(false);
-
-    this.signInCheck();
-
   }
 
   clickAccount(){

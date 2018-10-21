@@ -78,7 +78,9 @@ export class ListPage {
     }
   }
 
-  goBack(){
+  signout(){
+    console.log("Signed out")
+    this.auth.logout();
     this.navCtrl.setRoot(HomePage);
   }
 
