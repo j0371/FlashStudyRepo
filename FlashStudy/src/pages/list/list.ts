@@ -5,7 +5,9 @@ import { Title } from '@angular/platform-browser';
 import { AddSetPage } from '../add-set/add-set'
 import { AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home'
+import { AccountPopoverPage } from '../account-popover/account-popover'
 import { AuthenticationProvider } from '../../providers/authentication/authentication'
+import { PopoverController } from 'ionic-angular';
 
 @Component({
   selector: 'page-list',
@@ -16,7 +18,8 @@ export class ListPage {
   items: Array<{title: string, icon: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public alertCtrl: AlertController, private auth: AuthenticationProvider) {
+              public alertCtrl: AlertController, private auth: AuthenticationProvider,
+              public popoverCtrl: PopoverController) {
                 this.initializeItems();
 
                 console.log(auth.getUser().email);
@@ -78,10 +81,9 @@ export class ListPage {
     }
   }
 
-  signout(){
-    console.log("Signed out")
-    this.auth.logout();
-    this.navCtrl.setRoot(HomePage);
+  goToPopOver(){
+    const popover = this.popoverCtrl.create(AccountPopoverPage);
+    popover.present();
   }
 
 }

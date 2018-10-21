@@ -10,7 +10,13 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
 export class AboutPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              private auth: AuthenticationProvider) {
+    private auth: AuthenticationProvider) {
+
+      let user = auth.getUser();
+      if(user != null){
+        console.log(user.email);
+      }
+      
   }
 
   goBack(){

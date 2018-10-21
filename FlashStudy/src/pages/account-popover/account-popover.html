@@ -1,0 +1,26 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>ACCOUNT SETTINGS</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding text-wrap>
+
+<ion-list>
+
+    <ion-item (click)="goToAccountSettings()">
+        <ion-icon name="key" item-start></ion-icon>
+        <div ion-text color="dark">Change Password</div>
+      </ion-item>
+
+  <ion-item (click)="signout()">
+    <ion-icon name="log-out" item-start></ion-icon>
+    <div ion-text color="dark">Sign out</div>
+  </ion-item>
+
+</ion-list>
+
+</ion-content>

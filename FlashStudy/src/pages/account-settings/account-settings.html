@@ -1,0 +1,40 @@
+<ion-header>
+
+    <ion-navbar hideBackButton>
+  
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-title class="notHome">CHANGE PASSWORD</ion-title>
+                </ion-col>
+                <ion-col> </ion-col>
+              </ion-row>
+            </ion-grid>
+        
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+
+    <form>
+      
+        <ion-item>
+          <ion-input type="password" placeholder="New Password" [(ngModel)]="newPassword" name="newPassword" margin-top margin-bottom></ion-input>
+        </ion-item>
+
+                <ion-item>
+          <ion-input type="password" placeholder="Confirm New Password" [(ngModel)]="cPassword" name="cPassword" margin-top margin-bottom></ion-input>
+        </ion-item>
+      
+      </form>
+
+      <div text-center>
+        <button ion-button margin (click)="changePassword()">Submit</button>
+      </div>
+
+</ion-content>

@@ -11,6 +11,8 @@ import { SetPopOverPage } from '../pages/set-pop-over/set-pop-over'
 import { AddCardPage } from '../pages/add-card/add-card'
 import { NewAccountPage } from '../pages/new-account/new-account'
 import { AboutPage } from '../pages/about/about'
+import { AccountSettingsPage } from '../pages/account-settings/account-settings'
+import { AccountPopoverPage } from '../pages/account-popover/account-popover'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -28,7 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     SetPopOverPage,
     AddCardPage,
     NewAccountPage,
-    AboutPage
+    AboutPage,
+    AccountSettingsPage,
+    AccountPopoverPage
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ import { HttpClientModule } from '@angular/common/http';
     SetPopOverPage,
     AddCardPage,
     NewAccountPage,
-    AboutPage
+    AboutPage,
+    AccountSettingsPage,
+    AccountPopoverPage
   ],
   providers: [
     StatusBar,
