@@ -4,6 +4,8 @@ import { SetPage } from '../set/set';
 import { Title } from '@angular/platform-browser';
 import { AddSetPage } from '../add-set/add-set'
 import { AlertController } from 'ionic-angular';
+import { HomePage } from '../home/home'
+import { AuthenticationProvider } from '../../providers/authentication/authentication'
 
 @Component({
   selector: 'page-list',
@@ -14,8 +16,11 @@ export class ListPage {
   items: Array<{title: string, icon: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController, private auth: AuthenticationProvider) {
                 this.initializeItems();
+
+                console.log(auth.getUser().email);
+
   }
 
   initializeItems(){
@@ -74,7 +79,7 @@ export class ListPage {
   }
 
   goBack(){
-    this.navCtrl.pop();
+    this.navCtrl.setRoot(HomePage);
   }
 
 }

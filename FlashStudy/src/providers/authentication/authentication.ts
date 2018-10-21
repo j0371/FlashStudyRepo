@@ -14,8 +14,8 @@ export class AuthenticationProvider {
       return firebase.auth().createUserWithEmailAndPassword(email, password);
   }
 
-  login(credentials): Promise<any> {
-      return firebase.auth().signInWithEmailAndPassword(credentials.email, credentials.password);
+  login(email, password): Promise<any> {
+      return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
   loginAsGuest(): Promise<any> {
@@ -24,6 +24,10 @@ export class AuthenticationProvider {
 
   logout(): Promise<any> {
       return firebase.auth().signOut();
+  }
+
+  getUser() {
+    return firebase.auth().currentUser;
   }
 
 }
