@@ -13,6 +13,7 @@ import { NewAccountPage } from '../pages/new-account/new-account'
 import { AboutPage } from '../pages/about/about'
 import { AccountSettingsPage } from '../pages/account-settings/account-settings'
 import { AccountPopoverPage } from '../pages/account-popover/account-popover'
+import { ResetPage } from '../pages/reset/reset'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,7 +33,8 @@ import { HttpClientModule } from '@angular/common/http';
     NewAccountPage,
     AboutPage,
     AccountSettingsPage,
-    AccountPopoverPage
+    AccountPopoverPage,
+    ResetPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     NewAccountPage,
     AboutPage,
     AccountSettingsPage,
-    AccountPopoverPage
+    AccountPopoverPage,
+    ResetPage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,36 @@
+<ion-header>
+
+    <ion-navbar hideBackButton>
+  
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
+                </ion-col>
+                <ion-col>
+                  <ion-title class="notHome">RESET PASSWORD</ion-title>
+                </ion-col>
+                <ion-col> </ion-col>
+              </ion-row>
+            </ion-grid>
+        
+    </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content padding>
+
+    <form>
+
+        <ion-item>
+          <ion-input type="email" placeholder="Email of Account" [(ngModel)]="email" name="email" margin-top margin-bottom></ion-input>
+        </ion-item>
+      
+      </form>
+
+      <div text-center>
+        <button ion-button margin (click)="sendReset()">SEND RESET EMAIL</button>
+      </div>
+
+</ion-content>

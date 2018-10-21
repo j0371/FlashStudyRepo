@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import firebase from 'firebase';
+import firebase, { auth } from 'firebase';
 
 @Injectable()
 export class AuthenticationProvider {
@@ -21,10 +21,6 @@ export class AuthenticationProvider {
       return firebase.auth().signInWithEmailAndPassword(email, password);
   }
 
-  loginAsGuest(): Promise<any> {
-      return firebase.auth().signInAnonymously();
-  }
-
   logout(): Promise<any> {
       return firebase.auth().signOut();
   }
@@ -32,6 +28,10 @@ export class AuthenticationProvider {
   
   getUser() {
     return firebase.auth().currentUser;
+  }
+
+  resetPassword(email: string){
+    return firebase.auth().sendPasswordResetEmail(email);
   }
 
 }

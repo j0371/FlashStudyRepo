@@ -4,6 +4,7 @@ import { ListPage } from '../list/list';
 import { MenuController } from 'ionic-angular'
 import { NewAccountPage } from '../new-account/new-account'
 import { AboutPage } from '../about/about'
+import { ResetPage } from '../reset/reset'
 import { AuthenticationProvider } from '../../providers/authentication/authentication'
 import { AlertController } from 'ionic-angular';
 
@@ -23,6 +24,10 @@ export class HomePage {
 
   clickAccount(){
     this.navCtrl.push(NewAccountPage);
+  }
+
+  goToReset(){
+    this.navCtrl.push(ResetPage);
   }
 
   clickAbout(){
