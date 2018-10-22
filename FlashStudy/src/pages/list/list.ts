@@ -7,83 +7,65 @@ import { AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home'
 import { AccountPopoverPage } from '../account-popover/account-popover'
 import { AuthenticationProvider } from '../../providers/authentication/authentication'
+import { DatabaseProvider } from '../../providers/database/database'
 import { PopoverController } from 'ionic-angular';
+import { database } from 'firebase';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage {
-  
-  items: Array<{title: string, icon: string}>;
+
+  email: string;
+  sets: Array<{id: string, title: string, icon: string}>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public alertCtrl: AlertController, private auth: AuthenticationProvider,
-              public popoverCtrl: PopoverController) {
-                this.initializeItems();
+              public popoverCtrl: PopoverController, private db: DatabaseProvider) {
 
-                console.log(auth.getUser().email);
+                this.email = auth.getUser().email;
+                this.loadSets();
 
-  }
-
-  initializeItems(){
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-
-      if(i === 1){
-        this.items.push({
-          title: 'Example Set',
-          icon: 'flask'
-        });
-      }else{
-        this.items.push({
-          title: 'Set ' + i,
-          icon: 'flask'
-        });
-
-        if(i === 10){
-          this.items.push({
-            title: 'Add Set ',
-            icon: 'add'
-          });
-        }
-      } 
-    }
-  }
-
-  getItems(ev: any) {
-
-    const alert = this.alertCtrl.create({
-      title: 'Incomplete',
-      subTitle: 'This will filter the set names',
-      buttons: ['OK']
-    });
-    alert.present();
-
-  }
-
-  showAlert() {
-    const alert = this.alertCtrl.create({
-      title: 'Incomplete',
-      subTitle: 'Click the example set or add set',
-      buttons: ['OK']
-    });
-    alert.present();
-  }
-
-  itemTapped(item) {
-    if(this.items[0] === item){
-    this.navCtrl.push(SetPage);
-    }else if(this.items[10] === item){
-      this.navCtrl.push(AddSetPage);
-    }else{
-      this.showAlert();
-    }
   }
 
   goToPopOver(){
     const popover = this.popoverCtrl.create(AccountPopoverPage);
     popover.present();
+  }
+
+  loadSets(){
+
+    this.sets = [];
+
+    this.db.getSets(this.email)
+    .then(querySnapshot => {
+      querySnapshot.forEach(doc => {
+
+        this.sets.push({
+          id: doc.id,
+          title: doc.data().name,
+          icon: doc.data().icon
+        });
+
+      });
+
+      this.sets.push({
+        id: 'add',
+        title: 'Add Set ',
+        icon: 'add'
+      });
+
+    });
+
+  }
+
+  select(set) {
+    if(set.id == 'add'){
+    this.navCtrl.push(AddSetPage);
+    }else {
+      this.navCtrl.push(SetPage, { setId: set.id });
+    }
   }
 
 }

@@ -26,6 +26,8 @@ export class ResetPage {
     this.auth.resetPassword(this.email)
     .then(response => {
 
+      this.navCtrl.pop();
+
       const alert = this.alertCtrl.create({
         title: 'Success',
         subTitle: 'Reset Email Successfully Sent',
@@ -33,8 +35,7 @@ export class ResetPage {
         cssClass: "alert-message"
       });
       alert.present();
-
-      this.navCtrl.pop();
+ 
     })
     .catch(error => {
 

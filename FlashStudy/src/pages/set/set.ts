@@ -4,6 +4,7 @@ import { AlertController } from 'ionic-angular';
 import { PopoverController } from 'ionic-angular';
 import { SetPopOverPage } from '../set-pop-over/set-pop-over';
 import { AuthenticationProvider } from '../../providers/authentication/authentication'
+import { DatabaseProvider } from '../../providers/database/database'
 
 @IonicPage()
 @Component({
@@ -11,33 +12,31 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
   templateUrl: 'set.html',
 })
 export class SetPage {
-cards: Array<{front: string, back: string}>
+
+  email: string;
+  setId: string;
+
+cards: Array<{front: string, back: string, fImg: string, bImg: string}>
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public alertCtrl: AlertController,public popoverCtrl: PopoverController,
-              private auth: AuthenticationProvider) {
+              private auth: AuthenticationProvider, private db: DatabaseProvider) {
 
-   console.log(auth.getUser().email);
-
-   this.cards = [];
-
-   for(let i = 1; i<10;i++){
-
-     this.cards.push({
-      front: 'front of card ' + i,
-      back: "back of card " + i
-     });
-   }
-
+                this.email = auth.getUser().email;
+                this.setId = navParams.get('setId');
   }
 
-  getItems(ev: any) {
-    const alert = this.alertCtrl.create({
-      title: 'Incomplete',
-      subTitle: 'This will filter the set names',
-      buttons: ['OK']
+  loadCards(){
+
+    this.cards =[];
+
+    this.db.getCards(this.email, this.setId)
+    .then(querySnapshot => {
+
+      console.log("worked");
+
     });
-    alert.present();
+
   }
 
   clickCard() {

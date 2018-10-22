@@ -7,10 +7,7 @@ import firebase, { auth } from 'firebase';
 export class AuthenticationProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello AuthenticationProvider Provider');
-
     firebase.auth.Auth.Persistence.LOCAL;
-
   }
 
     register(email, password): Promise<any> {

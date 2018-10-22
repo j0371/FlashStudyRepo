@@ -3,8 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthenticationProvider } from '../../providers/authentication/authentication'
 import { AlertController } from 'ionic-angular';
 
-
-
 @IonicPage()
 @Component({
   selector: 'page-account-settings',
@@ -30,7 +28,17 @@ export class AccountSettingsPage {
       let user = this.auth.getUser();
       user.updatePassword(this.newPassword)
       .then(response => {
+
         this.navCtrl.pop();
+
+        const alert = this.alertCtrl.create({
+          title: 'Success',
+          subTitle: 'Password Reset Successfully',
+          buttons: ['OK'],
+          cssClass: "alert-message"
+        });
+        alert.present();
+
       })
       .catch(error => {
 

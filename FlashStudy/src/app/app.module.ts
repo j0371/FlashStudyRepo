@@ -20,6 +20,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthenticationProvider } from '../providers/authentication/authentication';
 import { getNonHydratedSegmentIfLinkAndUrlMatch } from 'ionic-angular/umd/navigation/url-serializer';
 import { HttpClientModule } from '@angular/common/http';
+import { DatabaseProvider } from '../providers/database/database';
+import { AngularFireModule } from 'angularfire2/';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,14 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    AngularFireModule.initializeApp({
+      apiKey: "AIzaSyAO6fOWook8YgypSli0w9rvtlNz5PkLSKY",
+      authDomain: "flashstudyauth.firebaseapp.com",
+      databaseURL: "https://flashstudyauth.firebaseio.com",
+      projectId: "flashstudyauth",
+      storageBucket: "flashstudyauth.appspot.com",
+      messagingSenderId: "717565357056"
+  }),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,7 +70,8 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthenticationProvider
+    AuthenticationProvider,
+    DatabaseProvider
   ]
 })
 
