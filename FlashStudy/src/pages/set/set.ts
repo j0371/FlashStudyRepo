@@ -24,6 +24,8 @@ cards: Array<{front: string, back: string, fImg: string, bImg: string}>
 
                 this.email = auth.getUser().email;
                 this.setId = navParams.get('setId');
+
+                this.loadCards();
   }
 
   loadCards(){
@@ -31,9 +33,9 @@ cards: Array<{front: string, back: string, fImg: string, bImg: string}>
     this.cards =[];
 
     this.db.getCards(this.email, this.setId)
-    .then(querySnapshot => {
+    .then(doc => {
 
-      console.log("worked");
+      console.log(doc.data());
 
     });
 

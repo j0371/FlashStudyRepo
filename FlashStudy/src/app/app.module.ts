@@ -21,7 +21,10 @@ import { AuthenticationProvider } from '../providers/authentication/authenticati
 import { getNonHydratedSegmentIfLinkAndUrlMatch } from 'ionic-angular/umd/navigation/url-serializer';
 import { HttpClientModule } from '@angular/common/http';
 import { DatabaseProvider } from '../providers/database/database';
-import { AngularFireModule } from 'angularfire2/';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -42,6 +45,9 @@ import { AngularFireModule } from 'angularfire2/';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
+    AngularFirestoreModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule,
     AngularFireModule.initializeApp({
       apiKey: "AIzaSyAO6fOWook8YgypSli0w9rvtlNz5PkLSKY",
       authDomain: "flashstudyauth.firebaseapp.com",

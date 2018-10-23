@@ -19,7 +19,7 @@ export class DatabaseProvider {
   }
 
   getCards(email: string, setId: string){
-    return this.db.collection(email).doc(setId).getCollections();
+    return this.db.collection(email).doc(setId).get();
   }
 
   addCard(email: string, setId: string, card: string, frontText: string, backText: string) {
