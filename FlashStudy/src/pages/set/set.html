@@ -27,26 +27,13 @@
         <button ion-button (click)="clickReset()">Reset Cards</button>
     </div>
 
-    <ion-card (click)="clickCard()">
-      <ion-card-content>
-
-        <div >
-          <ion-list>
-            <ion-item text-center><div ion-text color="dark">Image card Example</div></ion-item>
-            <ion-item text-center><div ion-text color="dark"><img src="assets/imgs/ball.jpg" /></div></ion-item>
-          </ion-list>
-        </div>
-
-      </ion-card-content>
-    </ion-card>
-
     <ion-card *ngFor="let card of cards" (click)="clickCard()">
         <ion-card-content>
 
           <div>
             <ion-list inset>
-              <ion-item text-center><div ion-text color="dark">{{ card.front }}</div></ion-item>
-              <ion-item text-center><div ion-text color="dark">{{ card.back }}</div></ion-item>
+              <ion-item text-center text-wrap><div ion-text color="dark">{{card.front}}</div></ion-item>
+              <ion-item text-center text-wrap><div ion-text color="dark">{{card.back}}</div></ion-item>
             </ion-list>
           </div>
 

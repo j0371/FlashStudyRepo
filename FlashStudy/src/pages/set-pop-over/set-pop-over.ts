@@ -11,8 +11,11 @@ import { ViewController } from 'ionic-angular';
 })
 export class SetPopOverPage {
 
+  setId: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public alertCtrl: AlertController, public viewCtrl: ViewController) {
+                this.setId = navParams.get('setId');
   }
 
   clickRename(){
@@ -25,7 +28,7 @@ export class SetPopOverPage {
   }
 
   clickAddCards(){
-    this.navCtrl.push(AddCardPage);
+    this.navCtrl.push(AddCardPage, { setId: this.setId });
     this.viewCtrl.dismiss();
   }
 

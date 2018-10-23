@@ -8,15 +8,20 @@ import { AlertController } from 'ionic-angular';
   templateUrl: 'add-card.html',
 })
 export class AddCardPage {
+  
+  setId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public alertCtrl: AlertController) {
+                this.setId = navParams.get('setId');
+
+                console.log(this.setId);
   }
 
   clickImg(){
     const alert = this.alertCtrl.create({
       title: 'Incomplete',
-      subTitle: 'This will prompt you to select a picture from your camera/photos',
+      subTitle: 'This will prompt you to select a picture from your camera/photos, it will be implemented in project 5',
       buttons: ['OK']
     });
     alert.present();

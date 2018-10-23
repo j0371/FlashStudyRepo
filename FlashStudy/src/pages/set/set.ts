@@ -33,9 +33,17 @@ cards: Array<{front: string, back: string, fImg: string, bImg: string}>
     this.cards =[];
 
     this.db.getCards(this.email, this.setId)
-    .then(doc => {
+    .then(querySnapshot => {
+      querySnapshot.forEach(doc => {
 
-      console.log(doc.data());
+        this.cards.push({
+          front: doc.data().front,
+          back: doc.data().back,
+          fImg: doc.data().frontImg,
+          bImg: doc.data().frontImg
+        });
+
+      });
 
     });
 
@@ -64,7 +72,7 @@ cards: Array<{front: string, back: string, fImg: string, bImg: string}>
   }
 
   goToPopOver(){
-    const popover = this.popoverCtrl.create(SetPopOverPage);
+    const popover = this.popoverCtrl.create(SetPopOverPage, { setId: this.setId });
     popover.present();
   }
 }
