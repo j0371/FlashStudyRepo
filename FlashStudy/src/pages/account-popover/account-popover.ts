@@ -21,7 +21,6 @@ export class AccountPopoverPage {
   }
 
   signout(){
-    console.log("Signed out")
     this.auth.logout();
     this.viewCtrl.dismiss();
     this.navCtrl.setRoot(HomePage);

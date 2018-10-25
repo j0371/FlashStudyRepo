@@ -55,16 +55,7 @@ export class DatabaseProvider {
   }
 
   deleteSet(email: string, setId: string){
-
-    this.db.collection(email).doc(setId).collection("cards").get()
-    .then(querysnapshot => {
-      querysnapshot.forEach(doc => {
-        doc.delete();
-      })
-    })
-
     this.db.collection(email).doc(setId).delete();
-
   }
 
   getSetName(email: string, setId: string){

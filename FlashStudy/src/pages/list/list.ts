@@ -64,7 +64,7 @@ export class ListPage {
     if(set.id == 'add'){
     this.navCtrl.push(AddSetPage, { listPage: this });
     }else {
-      this.navCtrl.push(SetPage, { setId: set.id });
+      this.navCtrl.push(SetPage, { setId: set.id, listPage: this });
     }
   }
 

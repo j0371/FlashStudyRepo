@@ -8,7 +8,7 @@
           <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
         </ion-col>
         <ion-col>
-          <ion-title class="notHome">EXAMPLE SET</ion-title>
+          <ion-title class="notHome"> {{ setName }} </ion-title>
         </ion-col>
         <ion-col>
           <ion-icon name="more" class="settings" (click)="goToPopOver()"></ion-icon>
@@ -25,20 +25,20 @@
 
     <ion-card *ngIf="cards.length == 0">
         <ion-card-content>
-          <div>
-            Press the (...) and add cards to get started 
+          <div text-wrap>
+            Press the (...) and add cards to get started, tap the cards to show the back text
           </div>
 
         </ion-card-content>
       </ion-card>
 
-    <ion-card *ngFor="let card of cards" (click)="clickCard()">
+    <ion-card *ngFor="let card of cards" (click)="clickCard(card)">
         <ion-card-content>
 
           <div>
             <ion-list inset>
               <ion-item text-center text-wrap><div ion-text color="dark">{{card.front}}</div></ion-item>
-              <ion-item text-center text-wrap><div ion-text color="dark">{{card.back}}</div></ion-item>
+              <ion-item text-center text-wrap *ngIf="card.show"><div ion-text color="dark">{{card.back}}</div></ion-item>
               <button ion-button full color="danger" *ngIf="delete" (click)="clickDelete(card)">Delete</button>
             </ion-list>
           </div>

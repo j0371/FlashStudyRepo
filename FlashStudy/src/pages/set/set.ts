@@ -17,8 +17,9 @@ export class SetPage {
   email: string;
   setId: string;
   delete: boolean = false;
+  setName: string;
 
-cards: Array<{cardId: string, front: string, back: string, fImg: string, bImg: string}>
+cards: Array<{cardId: string, front: string, back: string, fImg: string, bImg: string, show: boolean}>
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public alertCtrl: AlertController,public popoverCtrl: PopoverController,
@@ -27,6 +28,11 @@ cards: Array<{cardId: string, front: string, back: string, fImg: string, bImg: s
 
                 this.email = auth.getUser().email;
                 this.setId = navParams.get('setId');
+
+                this.db.getSetName(this.email, this.setId)
+                .then(doc =>{
+                  this.setName = doc.name;
+                })
 
                 this.loadCards();
   }
@@ -44,7 +50,8 @@ cards: Array<{cardId: string, front: string, back: string, fImg: string, bImg: s
           front: doc.data().front,
           back: doc.data().back,
           fImg: doc.data().frontImg,
-          bImg: doc.data().frontImg
+          bImg: doc.data().frontImg,
+          show: false
         });
 
       });
@@ -53,22 +60,8 @@ cards: Array<{cardId: string, front: string, back: string, fImg: string, bImg: s
 
   }
 
-  clickCard() {
-    const alert = this.alertCtrl.create({
-      title: 'Incomplete',
-      subTitle: 'The back part of the card will be hidden until you tap it',
-      buttons: ['OK']
-    });
-    alert.present();
-  }
-
-  clickReset(){
-    const alert = this.alertCtrl.create({
-      title: 'Incomplete',
-      subTitle: 'This will make all of the backs of the cards invisible again',
-      buttons: ['OK']
-    });
-    alert.present();
+  clickCard(card) {
+    card.show = !card.show;
   }
 
   goBack(){
@@ -76,13 +69,17 @@ cards: Array<{cardId: string, front: string, back: string, fImg: string, bImg: s
   }
 
   goToPopOver(){
-    const popover = this.popoverCtrl.create(SetPopOverPage, { setId: this.setId,setPage: this });
+    const popover = this.popoverCtrl.create(SetPopOverPage, { setId: this.setId,setPage: this, listPage: this.navParams.get('listPage') });
     popover.present();
   }
 
   clickDelete(card){
     this.db.deleteCard(this.email, this.setId, card.cardId);
     this.loadCards();
+  }
+
+  getSetName(){
+    return this.setName;
   }
 
 }
