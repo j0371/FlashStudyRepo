@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { DatabaseProvider } from '../../providers/database/database'
+import { AuthenticationProvider } from '../../providers/authentication/authentication'
+import { SetPage } from '../set/set';
 
 @IonicPage()
 @Component({
@@ -9,13 +12,18 @@ import { AlertController } from 'ionic-angular';
 })
 export class AddCardPage {
   
+  email: string;
   setId: string;
+  frontText: string = "";
+  backText: string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public alertCtrl: AlertController) {
+              public alertCtrl: AlertController, private db: DatabaseProvider,
+              private auth: AuthenticationProvider) {
                 this.setId = navParams.get('setId');
 
-                console.log(this.setId);
+                this.email = auth.getUser().email;
+
   }
 
   clickImg(){
@@ -25,18 +33,22 @@ export class AddCardPage {
       buttons: ['OK']
     });
     alert.present();
+
   }
 
   addCardButton(){
-    const alert = this.alertCtrl.create({
-      title: 'Incomplete',
-      subTitle: 'This will add the card to the set and clear the front/back inputs (stays on this page)',
-      buttons: ['OK']
-    });
-    alert.present();
+
+if(this.frontText === "" || this.backText === ""){
+  return;
+}
+
+  this.db.addCard(this.email, this.setId, this.frontText, this.backText);
+  this.frontText = "";
+  this.backText = "";
   }
 
   goBack(){
+    this.navParams.get("setPage").loadCards();
     this.navCtrl.pop();
   }
 

@@ -23,9 +23,14 @@
 
 <ion-content padding>
 
-    <div text-center margin>
-        <button ion-button (click)="clickReset()">Reset Cards</button>
-    </div>
+    <ion-card *ngIf="cards.length == 0">
+        <ion-card-content>
+          <div>
+            Press the (...) and add cards to get started 
+          </div>
+
+        </ion-card-content>
+      </ion-card>
 
     <ion-card *ngFor="let card of cards" (click)="clickCard()">
         <ion-card-content>
@@ -34,14 +39,13 @@
             <ion-list inset>
               <ion-item text-center text-wrap><div ion-text color="dark">{{card.front}}</div></ion-item>
               <ion-item text-center text-wrap><div ion-text color="dark">{{card.back}}</div></ion-item>
+              <button ion-button full color="danger" *ngIf="delete" (click)="clickDelete(card)">Delete</button>
             </ion-list>
           </div>
 
         </ion-card-content>
       </ion-card>
 
-      <div text-center margin>
-    <button ion-button (click)="clickReset()">Reset Cards</button>
-    </div>
+    <ion-item *ngIf="edit">TEXT TEST</ion-item>
 
 </ion-content>

@@ -5,6 +5,7 @@ import { PopoverController } from 'ionic-angular';
 import { SetPopOverPage } from '../set-pop-over/set-pop-over';
 import { AuthenticationProvider } from '../../providers/authentication/authentication'
 import { DatabaseProvider } from '../../providers/database/database'
+import { ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,12 +16,14 @@ export class SetPage {
 
   email: string;
   setId: string;
+  delete: boolean = false;
 
-cards: Array<{front: string, back: string, fImg: string, bImg: string}>
+cards: Array<{cardId: string, front: string, back: string, fImg: string, bImg: string}>
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public alertCtrl: AlertController,public popoverCtrl: PopoverController,
-              private auth: AuthenticationProvider, private db: DatabaseProvider) {
+              private auth: AuthenticationProvider, private db: DatabaseProvider,
+              public viewCtrl: ViewController) {
 
                 this.email = auth.getUser().email;
                 this.setId = navParams.get('setId');
@@ -37,6 +40,7 @@ cards: Array<{front: string, back: string, fImg: string, bImg: string}>
       querySnapshot.forEach(doc => {
 
         this.cards.push({
+          cardId: doc.id,
           front: doc.data().front,
           back: doc.data().back,
           fImg: doc.data().frontImg,
@@ -72,7 +76,13 @@ cards: Array<{front: string, back: string, fImg: string, bImg: string}>
   }
 
   goToPopOver(){
-    const popover = this.popoverCtrl.create(SetPopOverPage, { setId: this.setId });
+    const popover = this.popoverCtrl.create(SetPopOverPage, { setId: this.setId,setPage: this });
     popover.present();
   }
+
+  clickDelete(card){
+    this.db.deleteCard(this.email, this.setId, card.cardId);
+    this.loadCards();
+  }
+
 }

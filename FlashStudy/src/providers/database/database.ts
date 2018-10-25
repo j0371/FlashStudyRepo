@@ -22,13 +22,53 @@ export class DatabaseProvider {
     return this.db.collection(email).doc(setId).collection("cards").get();
   }
 
-  addCard(email: string, setId: string, card: string, frontText: string, backText: string) {
+  addCard(email: string, setId: string, frontText: string, backText: string) {
 
-    this.db.collection(email).doc(setId).collection(card).doc("content").add({
+    this.db.collection(email).doc(setId).collection("cards").add({
       front: frontText,
-      back: backText
-  })
+      back: backText,
+      frontImg: "",
+      backImg: ""
+    })
 
+  }
+
+  deleteCard(email: string, setId: string, cardId){
+  this.db.collection(email).doc(setId).collection("cards").doc(cardId).delete();
+  }
+
+  changeSet(email: string, setId: string, name: string, icon: string){
+    this.db.collection(email).doc(setId).update({
+      name: name,
+      icon: icon
+    });
+
+  }
+
+  addSet(email: string, name: string, icon: string){
+
+    this.db.collection(email).add({
+      name: name,
+      icon: icon
+    });
+
+  }
+
+  deleteSet(email: string, setId: string){
+
+    this.db.collection(email).doc(setId).collection("cards").get()
+    .then(querysnapshot => {
+      querysnapshot.forEach(doc => {
+        doc.delete();
+      })
+    })
+
+    this.db.collection(email).doc(setId).delete();
+
+  }
+
+  getSetName(email: string, setId: string){
+    return this.db.collection(email).doc(setId).get()
   }
 
 }

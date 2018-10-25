@@ -24,7 +24,7 @@
   <ion-list>
 
     <ion-item>
-      <ion-input type="text" placeholder="Front Text"></ion-input>
+      <ion-input type="text" placeholder="Front Text" [(ngModel)]="frontText"></ion-input>
     </ion-item>
 
     <ion-item no-lines (click)="clickImg()">
@@ -33,7 +33,7 @@
     </ion-item>
     
     <ion-item>
-        <ion-input type="text" placeholder="Back Text"></ion-input>
+        <ion-input type="text" placeholder="Back Text" [(ngModel)]="backText"></ion-input>
       </ion-item>
 
     <ion-item no-lines (click)="clickImg()">

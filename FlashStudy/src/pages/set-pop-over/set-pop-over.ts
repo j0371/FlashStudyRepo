@@ -3,6 +3,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AddCardPage } from '../add-card/add-card'
 import { ViewController } from 'ionic-angular';
+import { EditSetPage } from '../edit-set/edit-set'
+import { DatabaseProvider } from '../../providers/database/database'
+import { AuthenticationProvider } from '../../providers/authentication/authentication'
+import { ListPage } from '../list/list'
+
 
 @IonicPage()
 @Component({
@@ -11,24 +16,30 @@ import { ViewController } from 'ionic-angular';
 })
 export class SetPopOverPage {
 
+  delete: boolean;
+  setPage: any;
+  email: string;
   setId: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-              public alertCtrl: AlertController, public viewCtrl: ViewController) {
+              public alertCtrl: AlertController, public viewCtrl: ViewController,
+              private db: DatabaseProvider, private auth: AuthenticationProvider) {
+
+                this.setPage = navParams.get('setPage');
                 this.setId = navParams.get('setId');
+                this.email = auth.getUser().email;
+
+                this.delete = this.setPage.delete;
+
   }
 
-  clickRename(){
-    const alert = this.alertCtrl.create({
-      title: 'Incomplete',
-      subTitle: 'This will prompt you to type in the new name for the set',
-      buttons: ['OK']
-    });
-    alert.present();
+  clickPersonalize(){
+    this.navCtrl.push(EditSetPage, { setId: this.navParams.get('setId') });
   }
 
   clickAddCards(){
-    this.navCtrl.push(AddCardPage, { setId: this.setId });
+    this.navCtrl.push(AddCardPage, { setId: this.navParams.get('setId'), 
+                                     setPage: this.setPage });
     this.viewCtrl.dismiss();
   }
 
@@ -42,21 +53,35 @@ export class SetPopOverPage {
   }
 
   clickDeleteCards(){
-    const alert = this.alertCtrl.create({
-      title: 'Incomplete',
-      subTitle: 'This will add delete buttons to the cards for you to click',
-      buttons: ['OK']
-    });
-    alert.present();
+  
+    this.setPage.delete = !this.setPage.delete;
+    this.viewCtrl.dismiss();
+
   }
 
   clickDeleteSet(){
     const alert = this.alertCtrl.create({
-      title: 'Incomplete',
-      subTitle: 'This will prompt you to confirm the set deletion',
-      buttons: ['OK']
+      title: 'Confirm',
+      subTitle: 'Are you sure you want to delete this entire set?',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+          }
+        },
+        {
+          text: 'Delete',
+          handler: data => {
+
+            this.db.deleteSet(this.email, this.setId);
+
+          }
+        }
+      ]
     });
     alert.present();
+
+    this.navCtrl.setRoot(ListPage);
   }
 
 }

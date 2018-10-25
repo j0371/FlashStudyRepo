@@ -13,23 +13,10 @@
 
   <ion-list>
 
-      <ion-item (click)="clickRename()">
+      <ion-item (click)="clickPersonalize()">
           <ion-icon name="code-working" item-start></ion-icon>
-            <div ion-text color="dark">Rename Set</div>
+            <div ion-text color="dark">Personalize Set</div>
         </ion-item>
-        
-        <ion-item>
-            <ion-icon name="eye" item-start></ion-icon>
-            <ion-label ion-text color="dark">Icon</ion-label>
-            <ion-select [(ngModel)]="icon">
-              <ion-option value="flask">Flask</ion-option>
-              <ion-option value="calculator">Calculator</ion-option>
-              <ion-option value="musical-notes">Musical Note</ion-option>
-              <ion-option value="alert">Alert</ion-option>
-              <ion-option value="attach">Paper Clip</ion-option>
-              <ion-option value="build">Wrench</ion-option>
-            </ion-select>
-          </ion-item>
 
     <ion-item (click)="clickAddCards()">
       <ion-icon name="add" item-start></ion-icon>
@@ -43,7 +30,8 @@
 
     <ion-item (click)="clickDeleteCards()">
       <ion-icon ion-text color="danger" name="trash"  item-start></ion-icon>
-      <div ion-text color="danger">Delete Cards</div>
+      <div ion-text color="danger" *ngIf="!delete">Delete Cards</div>
+      <div ion-text color="danger" *ngIf="delete">Finish Deleting</div>
     </ion-item>
 
     <ion-item (click)="clickDeleteSet()">

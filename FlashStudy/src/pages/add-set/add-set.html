@@ -9,7 +9,7 @@
               <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
             </ion-col>
             <ion-col>
-              <ion-title class="notHome">NEW SET</ion-title>
+              <ion-title class="notHome">SET PERSONALIZATION</ion-title>
             </ion-col>
             <ion-col> </ion-col>
           </ion-row>
@@ -24,13 +24,13 @@
     <ion-list>
 
         <ion-item>
-            <ion-input type="text" placeholder="Set Name"></ion-input>
+            <ion-input type="text" placeholder="Set Name" [(ngModel)]="name"></ion-input>
           </ion-item>
 
         <ion-item>
             <ion-label ion-text color="dark">Icon</ion-label>
             <ion-select [(ngModel)]="icon">
-              <ion-option value="flask">Flask</ion-option>
+              <ion-option value="flask" selected="true">Flask</ion-option>
               <ion-option value="calculator">Calculator</ion-option>
               <ion-option value="musical-notes">Musical Note</ion-option>
               <ion-option value="alert">Alert</ion-option>
@@ -42,7 +42,7 @@
       </ion-list>
 
       <div id="buttonDiv">
-      <button ion-button (click)="showAlert()">Add Set</button>
+      <button ion-button (click)="apply()">Add Set</button>
       </div>
 
 </ion-content>

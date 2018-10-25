@@ -14,6 +14,7 @@ import { AboutPage } from '../pages/about/about'
 import { AccountSettingsPage } from '../pages/account-settings/account-settings'
 import { AccountPopoverPage } from '../pages/account-popover/account-popover'
 import { ResetPage } from '../pages/reset/reset'
+import { EditSetPage } from '../pages/edit-set/edit-set'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -39,7 +40,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AboutPage,
     AccountSettingsPage,
     AccountPopoverPage,
-    ResetPage
+    ResetPage,
+    EditSetPage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
     AboutPage,
     AccountSettingsPage,
     AccountPopoverPage,
-    ResetPage
+    ResetPage,
+    EditSetPage
   ],
   providers: [
     StatusBar,

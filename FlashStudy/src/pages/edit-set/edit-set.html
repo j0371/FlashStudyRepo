@@ -1,0 +1,49 @@
+
+<ion-header>
+
+    <ion-navbar hideBackButton>
+  
+        <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-icon name="arrow-back" class="back" (click)="goBack()"></ion-icon>
+              </ion-col>
+              <ion-col>
+                <ion-title class="notHome">SET PERSONALIZATION</ion-title>
+              </ion-col>
+              <ion-col> </ion-col>
+            </ion-row>
+          </ion-grid>
+      
+    </ion-navbar>
+  
+  </ion-header>
+  
+  <ion-content padding>
+  
+      <ion-list>
+  
+          <ion-item>
+              <ion-input type="text" [(ngModel)]="name" [placeholder]="name"></ion-input>
+            </ion-item>
+  
+          <ion-item>
+              <ion-label ion-text color="dark">Icon</ion-label>
+              <ion-select [(ngModel)]="icon">
+                <ion-option value="flask" selected="true">Flask</ion-option>
+                <ion-option value="calculator">Calculator</ion-option>
+                <ion-option value="musical-notes">Musical Note</ion-option>
+                <ion-option value="alert">Alert</ion-option>
+                <ion-option value="attach">Paper Clip</ion-option>
+                <ion-option value="build">Wrench</ion-option>
+              </ion-select>
+            </ion-item>
+  
+        </ion-list>
+  
+        <div id="buttonDiv">
+        <button ion-button (click)="apply()">Apply Changes</button>
+        </div>
+  
+  </ion-content>
+  
