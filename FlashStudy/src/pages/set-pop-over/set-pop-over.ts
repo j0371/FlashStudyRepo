@@ -75,13 +75,13 @@ export class SetPopOverPage {
 
             this.db.deleteSet(this.email, this.setId);
 
+            this.navCtrl.setRoot(ListPage);
+
           }
         }
       ]
     });
     alert.present();
-
-    this.navCtrl.setRoot(ListPage);
   }
 
 }
