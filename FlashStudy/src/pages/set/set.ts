@@ -31,7 +31,7 @@ cards: Array<{cardId: string, front: string, back: string, fImg: string, bImg: s
 
                 this.db.getSetName(this.email, this.setId)
                 .then(doc =>{
-                  this.setName = doc.name;
+                  this.setName = doc.data().name;
                 })
 
                 this.loadCards();
@@ -76,10 +76,6 @@ cards: Array<{cardId: string, front: string, back: string, fImg: string, bImg: s
   clickDelete(card){
     this.db.deleteCard(this.email, this.setId, card.cardId);
     this.loadCards();
-  }
-
-  getSetName(){
-    return this.setName;
   }
 
 }

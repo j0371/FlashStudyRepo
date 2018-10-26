@@ -12,7 +12,7 @@ import { AuthenticationProvider } from '../../providers/authentication/authentic
 export class AddSetPage {
 
   email: string;
-  name: string;
+  name: string = "";
   icon: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -25,6 +25,19 @@ export class AddSetPage {
   }
 
   apply(){
+
+    if(this.name === ""){
+      
+      const alert = this.alertCtrl.create({
+        title: 'No Name',
+        subTitle: 'Please Input a Name for the Set',
+        buttons: ['OK']
+      });
+      alert.present();
+
+      return;
+
+    }
 
     this.db.addSet(this.email, this.name, this.icon);
 

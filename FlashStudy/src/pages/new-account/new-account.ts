@@ -31,6 +31,8 @@ export class NewAccountPage {
       this.auth.register(this.email, this.password)
       .then(response => {
 
+        this.navCtrl.setRoot(HomePage);
+
         const alert = this.alertCtrl.create({
           title: 'Success',
           subTitle: 'Account Created Successfully',
@@ -38,8 +40,7 @@ export class NewAccountPage {
           cssClass: "alert-message"
         });
         alert.present();
-
-          this.navCtrl.setRoot(HomePage);
+  
       })
       .catch(error => {
 
