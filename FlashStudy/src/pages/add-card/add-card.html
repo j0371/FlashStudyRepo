@@ -26,19 +26,9 @@
     <ion-item>
       <ion-input type="text" placeholder="Front Text" [(ngModel)]="frontText"></ion-input>
     </ion-item>
-
-    <ion-item no-lines (click)="clickImg()">
-      <ion-icon name="add-circle" item-start></ion-icon>
-      <div ion-text color="dark">Add Image To Front</div>
-    </ion-item>
     
     <ion-item>
         <ion-input type="text" placeholder="Back Text" [(ngModel)]="backText"></ion-input>
-      </ion-item>
-
-    <ion-item no-lines (click)="clickImg()">
-        <ion-icon name="add-circle" item-start></ion-icon>
-        <div ion-text color="dark">Add Image To Back</div>
       </ion-item>
 
   </ion-list>
@@ -46,6 +36,6 @@
   <div text-center>
     <button ion-button style="width:25%" margin (click)="addCardButton()">Add Card</button>
     <button ion-button style="width:25%" margin (click)="goBack()">Done</button>
-  </div>    
+  </div> 
 
 </ion-content>
